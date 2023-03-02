@@ -1,10 +1,9 @@
 import React from 'react';
-import HelloWorld from '../components/hello-world';
-
+import ProfileButton from '../components/profile-button';
 export default function Home(props) {
   return (
     <div>
-      <HelloWorld />
+      <ProfileButton />
     </div>
   );
 }

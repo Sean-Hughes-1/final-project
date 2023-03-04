@@ -4,14 +4,11 @@ export default function ProfileButton(props) {
     // code to run on component mount
     console.log('Component mounted');
   }, []);
-  function handleClickProfile(e) {
-    console.log('event', e);
 
-  }
   return (
-    <button onClick={handleClickProfile}>
+    <a href="#profile">
       Profile
-    </button>
+    </a>
 
   );
 }

@@ -5,6 +5,7 @@ import Footer from '../components/footer';
 export default function Home(props) {
   return (
     <div>
+      <h1>I am the home page</h1>
      <Footer />
     </div>
   );

@@ -50,6 +50,24 @@ VALUES ($1, $2, $3, $4, $5);`;
       next(error);
     });
 });
+app.post('/api/app/add/revenue/', (req, res, next) => {
+  console.log('req body expense update: ', req.body);
+  const { date, amount, description, categoryId, userId } = req.body;
+  if (!date || !amount || !description || !categoryId || !userId) {
+    return res.status(400).json({ error: 'Invalid request: missing arguments from request' });
+  }
+  const sql = `INSERT INTO "revenues" ("date", "amount", "description", "categoryId", "userId")
+VALUES ($1, $2, $3, $4, $5);`;
+  const params = [date, amount, description, categoryId, userId];
+  db.query(sql, params)
+    .then(result => {
+      res.status(200).json({ message: 'Revenue updated successfully' });
+    })
+    .catch(error => {
+      console.error('Query failed: ', error.message);
+      next(error);
+    });
+});
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

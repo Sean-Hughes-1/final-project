@@ -28,7 +28,7 @@ export default function ProfileForm(props) {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error('Update failed');
+        throw new Error('Failed to connect to API');
       }
     })
     .then(data => {
